@@ -1,20 +1,23 @@
-table{
-    border: solid 2px black;
-    width: 100%;
-    height:20vh;
-    table-layout:fixed;
-    border-collapse: collapse;
-}
+html, body{
+        height: 100%;
+        margin: 0;
+    }
 
-tr :nth-child(1){
-    border: 1px solid gray;
-    background-color: red;
-}
-tr :nth-child(2){
-    border: 1px solid gray;
-    background-color: blue;
-}
-@viewport{
-    width: device-width;
-    zoom: 1;
-}
+    table{
+        border: solid 2px black;
+        width: 100%;
+        height:100vh;
+        table-layout:fixed;
+        border-collapse: collapse;
+    }
+
+    td {
+        border: 1px solid gray;
+    }
+    tr td:nth-child(1){
+        background-color: red;
+    }
+
+    tr td:nth-child(2){
+        background-color: blue;
+    }

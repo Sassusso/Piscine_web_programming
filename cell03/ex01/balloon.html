@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Explode this balloon</title>
+    </head>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color:red;
+            border-radius: 50%;
+            transition: width 0.5s ease, height 0.5s ease;
+            cursor: pointer;
+        }
+    </style>
+
+    <body>
+        <div onclick="alterarCorUpSize()" onmouseout="alterarCorDownSize()"></div>
+       
+    </body>
+
+    <script>
+
+        const cores =["red","green","blue"];
+        const cores2 =["blue","green","red"];
+        const largura = 200;
+        const altura = 200;
+        let i = 0;
+        let j = 0;
+
+        function alterarCorUpSize(){
+    
+            i = (i+1)%cores.length;
+
+            const div=document.querySelector("div");
+            const limite = 420;
+            
+            div.style.backgroundColor = cores[i];
+
+            /*pegar altura e largura actual*/
+            let heigth1 = parseFloat(window.getComputedStyle(div).height);
+            let width1 = parseFloat(window.getComputedStyle(div).width);
+            
+            if((heigth1&&width1)<limite){
+            /*largura*/
+            div.style.width= (width1 + 10) + "px";
+
+            /*altura*/
+            div.style.height = (heigth1 + 10) + "px";
+            } else {
+                div.style.width = (largura) + "px";
+                div.style.height = (altura) + "px";
+            }
+        }
+
+        function alterarCorDownSize(){
+
+            j = (j+1)%cores2.length;
+
+            const div=document.querySelector("div");
+            const limite = 200;
+            
+            div.style.backgroundColor = cores2[j];
+
+            /*pegar altura e largura actual*/
+            let heigth1 = parseFloat(window.getComputedStyle(div).height);
+            let width1 = parseFloat(window.getComputedStyle(div).width);
+            
+            if((heigth1&&width1)>limite){
+            /*largura*/
+            div.style.width= (width1 - 5) + "px";
+
+            /*altura*/
+            div.style.height = (heigth1 - 5) + "px";
+            } else {
+                div.style.width = (largura) + "px";
+                div.style.height = (altura) + "px";
+            }
+        }
+    </script>
+
+</html>

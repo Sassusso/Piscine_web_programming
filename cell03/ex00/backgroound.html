@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Change background</title>
+    </head>
+
+    <body>
+
+        <button onclick="alterarCor()">Click me!</button>
+
+        <script>
+            const cores =["white","red","green"];
+            let i = 0;
+            function alterarCor(){
+                i = (i+1)%cores.length;
+                const body=document.querySelector("body");
+                body.style.backgroundColor = cores[i];
+                
+            }
+        </script>
+    </body>
+</html>

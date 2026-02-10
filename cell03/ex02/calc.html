@@ -26,10 +26,20 @@
         
     }
 
+    select:hover{
+        
+        border: 1px solid blue;
+        
+    }
+
     input{
         border: 1px solid gray;
         width: 50px;
         border-radius: 5px;
+    }
+
+    input:hover{
+        border: 1px solid blue;     
     }
 
     button{
@@ -51,7 +61,7 @@
     <form id="calcForm">
 
         <div>
-            <label>First Number</label>
+            <label>First number</label>
 
             <input type="text" id="n1" required>
         </div>
@@ -67,7 +77,7 @@
         </div>
 
         <div>
-            <label>Second Number</label>
+            <label>Second number</label>
             <input type="text" id="n2" required>
         </div>
         <button type="submit" value="Try me!">Try me!</button>

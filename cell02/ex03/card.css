@@ -1,31 +1,36 @@
 body {
     font-family: sans-serif;
     text-align: center;
-    justify-items: center;
-}
-table {
-    box-shadow: 1px black;
-    border-collapse: collapse;
-    border: 1px gray solid;
-    margin: 0;
-    padding: 0;
-}
-img{
-    width: 170px;
+    font-size: 12px;
 }
 
-button{
-    width: 170px;
-    padding: 2px;
+/* centraliza a tabela */
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.2);
 }
-td> h2{
-    margin: 0;
-}
+
 td {
-    
     padding: 10px;
 }
-button{
+
+td > h2 {
+    margin: 0;
+}
+p{
+    color: gray;
+}
+img {
+    width: 100%;
+}
+
+button {
+    width: 100%;
+    padding: 6px;
     color: white;
     background-color: black;
+    border: none;
+    cursor: pointer;
 }

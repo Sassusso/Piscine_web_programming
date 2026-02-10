@@ -6,30 +6,71 @@
     <title>It's over 9000</title>
 </head>
 <style>
+    body{
+        margin: 20px;
+        font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+        text-align: center;
+        justify-items: center;
+    }
     body>form{
+        width:400px;
         display: flex;
         flex-direction: column;
     }
+
+    select{
+        width: 30px;
+        border-radius: 5px;
+    }
+
+    input{
+        border: 1px solid gray;
+        width: 50px;
+        border-radius: 5px;
+    }
+
+    input:focus-within{
+        border: 0.5px solid blue;
+    }
+
+    button{
+        margin: 5px;
+        border-radius: 15px;
+        background-color: black;
+        color: white;
+        padding: 4px;
+
+    }
+
+    button:hover{
+        opacity: 0.9;
+        border: 1px solid blue;
+    }
+
 </style>
 <body>
     <form id="calcForm">
 
-        <label>First Number</label>
+        <div>
+            <label>First Number</label>
 
-        <input type="text" id="n1" required>
+            <input type="text" id="n1" required>
+        </div>
+        <div>
+            <select name="operador" id="operador" required>
+                <option value="" disabled>Selecione..</option>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">X</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+        </div>
 
-        <select name="operador" id="operador" required>
-            <option value="" disabled>Selecione..</option>
-            <option value="+">+</option>
-            <option value="-">-</option>
-            <option value="*">X</option>
-            <option value="/">/</option>
-            <option value="%">%</option>
-        </select>
-
-        <label>Second Number</label>
-        <input type="text" id="n2" required>
-
+        <div>
+            <label>Second Number</label>
+            <input type="text" id="n2" required>
+        </div>
         <button type="submit" value="Try me!">Try me!</button>
     </form>
 </body>

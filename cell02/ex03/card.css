@@ -16,11 +16,12 @@ td {
     padding: 10px;
 }
 
-td > h2 {
+td > h1,h2,h2,h4 {
     margin: 0;
 }
 p{
     color: gray;
+    margin: 0;
 }
 img.profile {
     width: 100px;
@@ -32,6 +33,11 @@ td.icons img {
     width: 24px;   
     height: 24px; 
     margin: 0 4px; 
+    cursor: pointer;
+}
+
+td.icons img:hover {
+    transform:translateY(2);
 }
 
 button {

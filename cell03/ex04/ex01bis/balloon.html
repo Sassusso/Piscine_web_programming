@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explode this balloon</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        div{
+            width:200px;
+            height:200px;
+            background:red;
+            border-radius:50%;
+            transition: width .5s ease, height .5s ease;
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="balloon"></div>
+
+<script>
+$(function () {
+
+    const coresUp   = ["red","green","blue"];
+    const coresDown = ["blue","green","red"];
+
+    const base = 200;
+    const limite = 420;
+
+    let i = 0;
+    let j = 0;
+
+    const $balloon = $("#balloon");
+
+    function getSize() {
+        return {
+            w: $balloon.width(),
+            h: $balloon.height()
+        };
+    }
+
+    $balloon.on("click", function () {
+
+        i = (i + 1) % coresUp.length;
+
+        const {w, h} = getSize();
+
+        $balloon
+            .css("background-color", coresUp[i])
+            .width(w < limite ? w + 10 : base)
+            .height(h < limite ? h + 10 : base);
+    });
+
+
+    $balloon.on("mouseout", function () {
+
+        j = (j + 1) % coresDown.length;
+
+        const {w, h} = getSize();
+
+        $balloon
+            .css("background-color", coresDown[j])
+            .width(w > base ? w - 5 : base)
+            .height(h > base ? h - 5 : base);
+    });
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's over 9000</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body{
+            margin:20px;
+            font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+            text-align:center;
+        }
+
+        form{
+            width:400px;
+            margin:auto;
+            display:flex;
+            flex-direction:column;
+        }
+    </style>
+</head>
+
+<body>
+
+<form id="calcForm">
+
+    <label>First number</label>
+    <input type="number" id="n1" required>
+
+    <select id="operador" required>
+        <option value="" disabled selected>Selecione..</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">x</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+
+    <label>Second number</label>
+    <input type="number" id="n2" required>
+
+    <button type="submit">Try me!</button>
+
+</form>
+
+<script>
+    $(function () {
+
+    const $form = $("#calcForm");
+    const $n1 = $("#n1");
+    const $n2 = $("#n2");
+    const $op = $("#operador");
+
+    function calcular(a, b, op) {
+        switch (op) {
+            case "+": return a + b;
+            case "-": return a - b;
+            case "*": return a * b;
+            case "/": return a / b;
+            case "%": return a % b;
+            default: return null;
+        }
+    }
+
+    $form.on("submit", function (e) {
+        e.preventDefault();
+
+        const left  = Number($n1.val());
+        const right = Number($n2.val());
+        const operator = $op.val();
+
+        if (!Number.isInteger(left) || !Number.isInteger(right) ||
+            left < 0 || right < 0) {
+            alert("Error :(");
+            return;
+        }
+
+        if ((operator === "/" || operator === "%") && right === 0) {
+            alert("It's over 9000!");
+            console.log("It's over 9000!");
+            return;
+        }
+
+        const result = calcular(left, right, operator);
+
+        alert(result);
+        console.log(result);
+    });
+
+    setInterval(() => {
+        alert("Please, use me...");
+    }, 30000);
+
+});
+</script>
+
+</body>
+</html>
